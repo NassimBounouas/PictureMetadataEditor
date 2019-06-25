@@ -58,20 +58,9 @@ class ImportMetadata extends React.Component {
 	importMetadata = () => {
 		this.setState({ loading: true });
 		CopyMetadata(this.state.src, this.state.dest);
-		/*if (isWin()) {
-			winRetrieveMetadata(
-				this.state.src,
-				this.state.dest,
-				(data) => {
-					this.setState({ sucessOutput: (data.match(/1 image files updated/g) || []).length, errorOutput: '', loading: false });
-				},
-				(data) => {
-					this.setState({ sucessOutput: -1, errorOutput: data, loading: false });
-				}
-			);
-		} else {
-			this.setState({ loading: false });
-		}*/
+		// this.setState({ sucessOutput: (data.match(/1 image files updated/g) || []).length, errorOutput: '', loading: false });
+		// this.setState({ sucessOutput: -1, errorOutput: data, loading: false });
+		this.setState({ loading: false })
 	}
 
     /**

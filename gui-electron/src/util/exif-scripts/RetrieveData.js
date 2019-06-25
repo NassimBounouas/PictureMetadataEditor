@@ -32,16 +32,18 @@ export function CopyMetadata(from, to) {
                     if (result.data.length > 0) {
                         console.log(result.data[0]);
                         Object.keys(result.data[0]).forEach(key => {
-                            metadata[key] = result.data[0][key]
+                            if (key !== 'SourceFile') {
+                                metadata[key] = result.data[0][key]
+                            }
                         })
                     }
                 }
                 if (error != undefined) {
                     console.log(error);
                 }
-                console.log('metadata : ' + JSON.stringify(metadata));
+            
             })
-            .then(() => ep.readMetadata(to + '/pierre.jpg', ['-File:all']))
+            .then(() => ep.writeMetadata(to + '/' + filename, metadata, ['overwrite_original']))
             .then(console.log, console.error)
             .then(() => ep.close())
             .then(() => console.log('Closed exiftool'))

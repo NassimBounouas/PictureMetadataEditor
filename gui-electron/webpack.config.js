@@ -23,6 +23,10 @@ module.exports = () => {
             path: path.resolve(__dirname, 'build'),
             publicPath: './'
         },
+        externals: {
+            child_process: 'require(\'child_process\')',
+            fs: 'require(\'fs\')'
+        },
         // =======================================
         /**
          * Loaders
@@ -118,7 +122,7 @@ module.exports = () => {
              */
             minimize: true,
             minimizer: [
-                new UglifyJsPlugin({
+                /*new UglifyJsPlugin({
                     test: /\.js$/,
                     exclude: /node_modules/,
                     sourceMap: true,
@@ -126,7 +130,7 @@ module.exports = () => {
                         compress: {},
                         mangle: true,
                     }
-                }),
+                }),*/
             ],
             /**
              * Split js script (custom code and node_modules)

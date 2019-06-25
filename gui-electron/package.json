@@ -12,15 +12,18 @@
     "test:coverage": "jest --coverage --colors",
     "lint": "npx eslint src/**/*.js",
     "build-update": "webpack --display=minimal --mode production",
-    "build-win-app": "cd deploy && add_win_scripts.bat && cd .. && electron-packager ./build PictureMetadaEditor --platform win32 --arch x64 --out app/windows --overwrite && COPY ..\\windows\\exiftool.exe .\\app\\windows\\PictureMetadaEditor-win32-x64"
+    "build-win-app": "cd deploy && add_win_scripts.bat && cd .. && electron-packager ./build PictureMetadaEditor --platform win32 --arch x64 --out app/windows --overwrite && COPY ..\\windows\\exiftool.exe .\\app\\windows\\PictureMetadaEditor-win32-x64",
+    "build-linux-app": "cp package.json ./build && cp main.js ./build && electron-packager ./build PictureMetadataEditor --platform linux --arch x64 --out app/linux --overwrite"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.3.1",
+    "dist-exiftool": "^10.53.0",
     "electron": "^4.0.6",
     "is-electron": "^2.2.0",
+    "node-exiftool": "^2.3.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
     "react-bootstrap": "^1.0.0-beta.5",

@@ -5,6 +5,7 @@ import { faDownload, faSpinner, faCheck, faTimes } from '@fortawesome/free-solid
 import FolderPicker from '../folder-picker/FolderPicker';
 import { isWin } from '../../util/OSService';
 import { winRetrieveMetadata } from './RetrieveMetadata';
+import { CopyMetadata } from '../../util/exif-scripts/RetrieveData';
 
 import './ImportMetadata.scss';
 
@@ -56,7 +57,8 @@ class ImportMetadata extends React.Component {
      */
 	importMetadata = () => {
 		this.setState({ loading: true });
-		if (isWin()) {
+		CopyMetadata(this.state.src, this.state.dest);
+		/*if (isWin()) {
 			winRetrieveMetadata(
 				this.state.src,
 				this.state.dest,
@@ -69,7 +71,7 @@ class ImportMetadata extends React.Component {
 			);
 		} else {
 			this.setState({ loading: false });
-		}
+		}*/
 	}
 
     /**
